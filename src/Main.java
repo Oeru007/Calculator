@@ -1,11 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int priority(char a){
-        if(a == '+' || a == '-' || a == '*' || a == '/')
-            return 1;
-        else return 0;
-    }
+
     public static void main(String[] args) {
         String task = new Scanner(System.in).nextLine();
         String[] splitTask = task.split("[+-/*]");
