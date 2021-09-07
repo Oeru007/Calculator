@@ -1,6 +1,8 @@
+import LocalExceptions.IncorrectMathOperationFormat;
+
 import java.util.Scanner;
 
-public class Main {
+public class Main  {
 
     public static void main(String[] args) {
         String task = new Scanner(System.in).nextLine();
