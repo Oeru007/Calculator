@@ -1,3 +1,5 @@
+import LocalExceptions.*;
+
 import java.util.*;
 
 public class RomeToArab {
@@ -9,20 +11,22 @@ public class RomeToArab {
             Map.of( 100,"C",  90,"XC",  50,"L",
                      40,"XL",  10,"X",  9,"IX",
                      5,"V",  4,"IV",  1,"I"));
-    int arabNum;
-    public static String[] toArab(String romeTask){
+
+    public static String[] toArab(String romeTask) throws IncorrectRomanNumbersException {
         String[] splitTask = romeTask.split("[+-/*]");
         if (RtoA.containsKey(splitTask[0].toUpperCase()) && RtoA.containsKey(splitTask[1].toUpperCase())) {
             for (int i = 0; i < splitTask.length; i++) {
                 splitTask[i] = RtoA.get(splitTask[i].toUpperCase());
             }
         } else
-            System.out.println("Не поддерживаются");
+            throw new IncorrectRomanNumbersException();
         return splitTask;
     }
 
-    public static String toRome(int num){
+    public static String toRome(int num)throws RomanNumberException {
         int i = 0;
+        if (num<=0)
+            throw new RomanNumberException();
         String solution = "";
         List<Integer> arabicNum = new ArrayList<>(AtoR.keySet());
         Collections.sort(arabicNum, Collections.reverseOrder());
