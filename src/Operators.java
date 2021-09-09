@@ -8,7 +8,7 @@ public enum Operators {
         public int action(int a, int b) {return (a*b);}
     },
     DIV{
-        public int action(int a, int b) {return (int) Math.round((double)a/(double)b);} //Для корректного округления 0,5=1 и 0,4=0
+        public int action(int a, int b) {return a/b;} 
     },
     SUBST{
         public int action(int a, int b) {return (a-b);}
